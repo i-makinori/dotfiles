@@ -1,19 +1,19 @@
 
 ;;;; init
 
-(setq ring-bell-function 'ignore)
-(setq make-backup-files nil)
+(setq ring-bell-function 'ignore) ;;bell
+(setq make-backup-files nil) ;;file
 (setq auto-save-default nil)
-(set-language-environment 'Japanese)
+(set-language-environment 'Japanese) ;; encode
 (prefer-coding-system 'utf-8)
-(setq-default indent-tabs-mode nil)
+(setq-default indent-tabs-mode nil) ;; indent
 
-(setq inhibit-startup-screen t)
-(show-paren-mode t)
-(menu-bar-mode 0)
+(setq inhibit-startup-screen t) ;; ignore startup
+(show-paren-mode t) ;; paren
+(menu-bar-mode 0) ;; window-bars
 (tool-bar-mode 0)
 
-(global-set-key (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "C-h") 'delete-backward-char) ;; keys
 (global-set-key (kbd "M-p") 'scroll-down)
 (global-set-key (kbd "M-n") 'scroll-up)
 
@@ -31,12 +31,13 @@
 
 (set-frame-font "ricty-13")
 
-(setq-default show-trailing-whitespace t) ; 行末の空白をハイライト
-(add-hook 'font-lock-mode-hook            ; タブをハイライト
+(setq-default show-trailing-whitespace t) ;; highlight
+(add-hook 'font-lock-mode-hook            ;; highlight
           (lambda ()
             (font-lock-add-keywords
              nil
              '(("\t" 0 'trailing-whitespace prepend)))))
+
 
 
 ;;;; package
@@ -51,7 +52,7 @@
 (require 'helm)
 (require 'helm-config)
 (helm-mode t)
-(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "M-x") 'helm-M-x) ;; key bindings
 (define-key global-map (kbd "C-x C-f") 'helm-find-files)
 (define-key helm-map (kbd "C-h") 'delete-backward-char)
 (define-key helm-find-files-map (kbd "C-h") 'delete-backward-char)
