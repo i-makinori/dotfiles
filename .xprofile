@@ -1,0 +1,18 @@
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export DefaultIMModule=fcitx
+
+
+# xrandr
+xrandr --output eDP1 --auto
+
+CONNECTED=$(xrandr | grep "HDMI2" | grep " connected ")
+if [ "$CONNECTED" ]
+then
+    xrandr --output HDMI2 --auto --right-of eDP1
+fi
+
+
+# run programs
+fcitx
