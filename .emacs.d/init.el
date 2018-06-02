@@ -67,6 +67,14 @@
   (let ((tramp-file-name (concat "/sudo::" (expand-file-name file-name))))
     (find-file tramp-file-name)))
 
+;; shell
+(setq shell-command-switch "-ic")
+
+(load-file (expand-file-name "~/.emacs.d/shellenv.el"))
+(dolist (path (reverse (split-string (getenv "PATH") ":")))
+  (add-to-list 'exec-path path))
+
+
 ;;;; modeline
 (require 'smart-mode-line)
 
@@ -86,6 +94,8 @@
 (setq sml/no-confirm-load-theme t)
 (sml/setup)
 (sml/apply-theme 'light)
+
+;;;; orgmode
 
 
 ;; company
@@ -143,6 +153,12 @@
 
 
 ;;;; lisp
+(setq inferior-lisp-program "ros run")
+
+(add-to-list 'load-path (expand-file-name "~/.emacs.d/slime"))
+(require 'slime)
+(slime-setup '(slime-repl slime-fancy slime-banner))
+
 
 
 
@@ -154,7 +170,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "f588a59b242302fa8aca00c214d5ebccf385c4930965f8b7783649b51e369e08" default))))
+    ("a25f3d016f2d56edcfa77ccf6c76fa3b76db349a02233916146c3a837442bdca" "a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "f588a59b242302fa8aca00c214d5ebccf385c4930965f8b7783649b51e369e08" default)))
+ '(package-selected-packages
+   (quote
+    (slime markdown-mode+ magit total-lines smart-mode-line popwin magit-popup helm haskell-mode git-commit ghub diminish company-quickhelp))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
