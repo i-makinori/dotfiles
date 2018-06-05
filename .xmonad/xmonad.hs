@@ -80,7 +80,6 @@ myLayoutHook = avoidStruts $ ( toggleLayouts (noBorders Full)
 
 myLayout = spacing gapwidth $ gaps [(U, gwU),(D, gwD),(L, gwL),(R, gwR)]
            $ (ResizableTall 1 (1/205) (120/205) [])
-           ||| (TwoPane (1/205) (120/2))
            ||| Simplest
   where gapwidth  = 6
      	gwU = 2
