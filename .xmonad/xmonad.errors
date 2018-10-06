@@ -1,7 +1,14 @@
 
-xmonad.hs:86:6: warning: [-Wtabs]
+xmonad.hs:85:12: warning: [-Wdeprecations]
+    In the use of ‘spacing’ (imported from XMonad.Layout.Spacing):
+    Deprecated: "Use spacingRaw instead."
+   |
+85 | myLayout = spacing gapwidth $ gaps [(U, gwU),(D, gwD),(L, gwL),(R, gwR)]
+   |            ^^^^^^^
+
+xmonad.hs:89:6: warning: [-Wtabs]
     Tab character found here, and in 22 further locations.
     Please use spaces instead.
    |
-86 |         gwU = 2
+89 |         gwU = 2
    |      ^^^

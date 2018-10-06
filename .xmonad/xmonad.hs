@@ -11,6 +11,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 
 import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.SpawnOnce
 import XMonad.Util.EZConfig(additionalKeys, additionalKeysP)
 
 import XMonad.Layout.ResizableTile
@@ -70,6 +71,9 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 myStartupHook :: X ()
 myStartupHook = do
   spawn "feh --bg-center ~/.xmonad/data/MetaTronC.png"
+  spawnOnce "xrdb -I $HOME $HOME/.Xresources"
+
+
   -- spawn "fcitx"
 
 -- layout
